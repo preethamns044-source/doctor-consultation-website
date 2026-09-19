@@ -88,7 +88,8 @@ export default function Navbar({ onBookClick }) {
                 variant="outline"
                 size="sm"
                 icon={WhatsAppIcon}
-                className="bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:border-green-300 hidden md:inline-flex"
+                className="hidden md:inline-flex text-white border-transparent hover:opacity-90"
+                style={{ backgroundColor: '#25D366', borderColor: '#25D366' }}
               >
                 WhatsApp
               </Button>
@@ -155,7 +156,7 @@ export default function Navbar({ onBookClick }) {
             </nav>
             <div className="pt-2 px-4 flex flex-col gap-2.5 border-t border-slate-100">
               <a href="https://wa.me/917022108860?text=Hello%20Dr.%20Dheekshith%20MR%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation." target="_blank" rel="noopener noreferrer" className="w-full">
-                <Button variant="outline" size="md" className="w-full justify-center text-xs sm:text-sm bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:border-green-300" icon={WhatsAppIcon}>
+                <Button variant="outline" size="md" className="w-full justify-center text-xs sm:text-sm text-white border-transparent hover:opacity-90" icon={WhatsAppIcon} style={{ backgroundColor: '#25D366', borderColor: '#25D366' }}>
                   WhatsApp
                 </Button>
               </a>

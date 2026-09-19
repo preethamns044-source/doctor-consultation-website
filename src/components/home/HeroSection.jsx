@@ -76,7 +76,8 @@ export default function HeroSection({ onBookClick }) {
                   variant="outline" 
                   size="lg" 
                   icon={WhatsAppIcon} 
-                  className="w-full sm:w-auto border-green-300 hover:border-green-400 text-green-800 bg-green-50"
+                  className="w-full sm:w-auto border-transparent text-white hover:opacity-90"
+                  style={{ backgroundColor: '#25D366', borderColor: '#25D366' }}
                 >
                   WhatsApp
                 </Button>

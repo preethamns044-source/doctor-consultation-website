@@ -225,7 +225,8 @@ export default function ConsultationSection({ onBookClick }) {
                   variant="outline" 
                   size="md" 
                   icon={WhatsAppIcon} 
-                  className="w-full justify-center bg-green-600/10 text-green-400 border-green-500/30 hover:bg-green-600/20 hover:border-green-500/50"
+                  className="w-full justify-center text-white border-transparent hover:opacity-90"
+                  style={{ backgroundColor: '#25D366', borderColor: '#25D366' }}
                 >
                   WhatsApp Us
                 </Button>
@@ -416,7 +417,8 @@ export default function ConsultationSection({ onBookClick }) {
                       variant="outline"
                       size="lg"
                       icon={WhatsAppIcon}
-                      className="w-full justify-center border-green-300 bg-green-50 text-green-700 hover:bg-green-100 hover:border-green-400"
+                      className="w-full justify-center text-white border-transparent hover:opacity-90"
+                      style={{ backgroundColor: '#25D366', borderColor: '#25D366' }}
                     >
                       WhatsApp
                     </Button>
