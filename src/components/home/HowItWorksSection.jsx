@@ -31,14 +31,14 @@ export default function HowItWorksSection() {
   ];
 
   return (
-    <section id="how-it-works" className="py-20 bg-white border-b border-slate-100">
+    <section id="how-it-works" className="py-12 sm:py-20 bg-white border-b border-slate-100">
       <Container>
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-3.5 py-1 rounded-full border border-teal-200/80">
             Consultation Process
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             How Your Appointment Works
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">

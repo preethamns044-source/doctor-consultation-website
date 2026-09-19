@@ -288,12 +288,12 @@ export default function AppointmentModal({ isOpen, onClose, initialType = 'in-cl
                   </a>
                   {clinic.whatsappUrl && (
                     <a 
-                      href="https://wa.me/917022108860" 
+                      href="https://wa.me/917022108860?text=Hello%20Dr.%20Dheekshith%20MR%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation." 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex-1 sm:flex-initial"
                     >
-                      <Button variant="outline" size="sm" icon={MessageSquare} className="w-full text-xs text-emerald-800 border-emerald-300 bg-emerald-50/50">
+                      <Button variant="outline" size="sm" icon={MessageSquare} className="w-full text-xs text-white border-transparent" style={{ backgroundColor: '#25D366', borderColor: '#25D366' }}>
                         WhatsApp
                       </Button>
                     </a>
@@ -352,16 +352,17 @@ export default function AppointmentModal({ isOpen, onClose, initialType = 'in-cl
                   </a>
                   {clinic.whatsappUrl && (
                     <a 
-                      href="https://wa.me/917022108860" 
+                      href="https://wa.me/917022108860?text=Hello%20Dr.%20Dheekshith%20MR%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation." 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-full min-[340px]:w-auto flex-1 sm:flex-initial"
                     >
                       <button
                         type="button"
-                        className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl border border-emerald-300 bg-emerald-50 hover:bg-emerald-100/80 text-emerald-800 text-xs font-semibold cursor-pointer transition-colors"
+                        className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl border border-transparent text-white text-xs font-semibold cursor-pointer transition-colors hover:opacity-90"
+                        style={{ backgroundColor: '#25D366' }}
                       >
-                        <MessageSquare className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+                        <MessageSquare className="w-3.5 h-3.5 shrink-0" />
                         <span>WhatsApp</span>
                       </button>
                     </a>

@@ -24,7 +24,7 @@ export default function HeroSection({ onBookClick }) {
   const { name, title, degrees, experienceYears, image, clinic } = DOCTOR_PROFILE;
 
   return (
-    <section className="relative bg-white pt-8 pb-16 lg:pt-14 lg:pb-24 border-b border-slate-100 overflow-hidden">
+    <section className="relative bg-white pt-6 pb-12 lg:pt-14 lg:pb-24 border-b border-slate-100 overflow-hidden">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Doctor Identity, Title & Primary CTAs */}
@@ -61,7 +61,7 @@ export default function HeroSection({ onBookClick }) {
             </div>
 
             {/* Action CTAs: Book Consultation + Call Now */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch gap-3">
               <Button 
                 variant="primary" 
                 size="lg" 
@@ -71,23 +71,23 @@ export default function HeroSection({ onBookClick }) {
               >
                 Book Consultation
               </Button>
-              <a href="https://wa.me/917022108860?text=Hello%20Dr.%20Dheekshith%20MR%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation." target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/917022108860?text=Hello%20Dr.%20Dheekshith%20MR%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button 
                   variant="outline" 
                   size="lg" 
                   icon={WhatsAppIcon} 
-                  className="w-full sm:w-auto border-transparent text-white hover:opacity-90"
+                  className="w-full border-transparent text-white hover:opacity-90"
                   style={{ backgroundColor: '#25D366', borderColor: '#25D366' }}
                 >
                   WhatsApp
                 </Button>
               </a>
-              <a href="tel:+917022108860">
+              <a href="tel:+917022108860" className="w-full sm:w-auto">
                 <Button 
                   variant="outline" 
                   size="lg" 
                   icon={PhoneCall} 
-                  className="w-full sm:w-auto border-slate-300 hover:border-slate-400 text-slate-800 bg-white"
+                  className="w-full border-slate-300 hover:border-slate-400 text-slate-800 bg-white"
                 >
                   Call Now ({clinic.phone})
                 </Button>
@@ -95,7 +95,7 @@ export default function HeroSection({ onBookClick }) {
             </div>
 
             {/* Elegant Trust Highlights Strip */}
-            <div className="pt-6 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-xl">
+            <div className="pt-5 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-xl">
               <div className="space-y-0.5">
                 <div className="flex items-center gap-1.5 text-slate-900 font-bold text-xs sm:text-sm">
                   <CheckCircle2 className="w-4 h-4 text-teal-700 shrink-0" />

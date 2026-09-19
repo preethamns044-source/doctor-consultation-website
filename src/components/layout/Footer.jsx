@@ -15,9 +15,9 @@ export default function Footer() {
   const { name, degrees, clinic } = DOCTOR_PROFILE;
 
   return (
-    <footer className="bg-slate-900 text-slate-400 pt-16 pb-12 border-t border-slate-800">
+    <footer className="bg-slate-900 text-slate-400 pt-10 sm:pt-16 pb-10 sm:pb-12 border-t border-slate-800">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 mb-10 sm:mb-12">
           {/* Brand Col */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">

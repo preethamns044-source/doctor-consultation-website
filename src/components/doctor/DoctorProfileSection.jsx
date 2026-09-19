@@ -17,9 +17,9 @@ export default function DoctorProfileSection() {
   const { name, degrees, specialty, subSpecialties, bio, affiliations } = DOCTOR_PROFILE;
 
   return (
-    <section id="about" className="py-20 bg-white border-b border-slate-100">
+    <section id="about" className="py-12 sm:py-20 bg-white border-b border-slate-100">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           {/* Left Column: Doctor Profile Card / Clinical Vignette */}
           <div className="lg:col-span-5">
             <div className="relative bg-slate-50 rounded-3xl p-5 sm:p-8 border border-slate-200/90 shadow-xs">
@@ -75,7 +75,7 @@ export default function DoctorProfileSection() {
               <span>About Dr. Dheekshith MR</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Expert Orthopaedic Care Built on Comprehensive Training and Patient-Centred Practice
             </h2>
 
