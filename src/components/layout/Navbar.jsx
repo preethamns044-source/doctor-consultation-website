@@ -12,6 +12,12 @@ const Instagram = ({ className }) => (
   </svg>
 );
 
+const WhatsAppIcon = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+);
+
 export default function Navbar({ onBookClick }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { name, degrees, clinic } = DOCTOR_PROFILE;
@@ -77,7 +83,17 @@ export default function Navbar({ onBookClick }) {
             >
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="tel:+917022108860" className="hidden md:inline-flex">
+            <a href="https://wa.me/917022108860?text=Hello%20Dr.%20Dheekshith%20MR%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation." target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="outline"
+                size="sm"
+                icon={WhatsAppIcon}
+                className="bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:border-green-300 hidden md:inline-flex"
+              >
+                WhatsApp
+              </Button>
+            </a>
+            <a href="tel:+917022108860" className="hidden lg:inline-flex">
               <Button
                 variant="outline"
                 size="sm"
@@ -138,6 +154,11 @@ export default function Navbar({ onBookClick }) {
               ))}
             </nav>
             <div className="pt-2 px-4 flex flex-col gap-2.5 border-t border-slate-100">
+              <a href="https://wa.me/917022108860?text=Hello%20Dr.%20Dheekshith%20MR%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation." target="_blank" rel="noopener noreferrer" className="w-full">
+                <Button variant="outline" size="md" className="w-full justify-center text-xs sm:text-sm bg-green-50 text-green-700 border-green-200 hover:bg-green-100 hover:border-green-300" icon={WhatsAppIcon}>
+                  WhatsApp
+                </Button>
+              </a>
               <a href="tel:+917022108860" className="w-full">
                 <Button variant="outline" size="md" className="w-full justify-center text-xs sm:text-sm" icon={PhoneCall}>
                   Call Clinic ({clinic.phone})

@@ -16,6 +16,12 @@ import {
   AlertCircle
 } from 'lucide-react';
 
+const WhatsAppIcon = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+);
+
 export default function ConsultationSection({ onBookClick }) {
   const { clinic, consultationOptions } = DOCTOR_PROFILE;
   const [selectedMode, setSelectedMode] = useState('telehealth');
@@ -213,7 +219,17 @@ export default function ConsultationSection({ onBookClick }) {
             </div>
 
             {/* Quick Call Button inside card */}
-            <div className="pt-2">
+            <div className="pt-2 space-y-3">
+              <a href="https://wa.me/917022108860?text=Hello%20Dr.%20Dheekshith%20MR%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation." target="_blank" rel="noopener noreferrer" className="block">
+                <Button 
+                  variant="outline" 
+                  size="md" 
+                  icon={WhatsAppIcon} 
+                  className="w-full justify-center bg-green-600/10 text-green-400 border-green-500/30 hover:bg-green-600/20 hover:border-green-500/50"
+                >
+                  WhatsApp Us
+                </Button>
+              </a>
               <a href="tel:+917022108860" className="block">
                 <Button 
                   variant="outline" 
@@ -383,24 +399,35 @@ export default function ConsultationSection({ onBookClick }) {
                   </div>
                 )}
 
-                <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                <div className="pt-2 flex flex-col sm:flex-row gap-3 flex-wrap">
                   <Button
                     type="submit"
                     variant="primary"
                     size="lg"
                     icon={Send}
                     disabled={isSubmitting}
-                    className="flex-1 justify-center"
+                    className="flex-1 justify-center sm:min-w-[200px]"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Appointment Request'}
                   </Button>
-                  <a href="tel:+917022108860" className="sm:w-auto">
+                  <a href="https://wa.me/917022108860?text=Hello%20Dr.%20Dheekshith%20MR%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation." target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="lg"
+                      icon={WhatsAppIcon}
+                      className="w-full justify-center border-green-300 bg-green-50 text-green-700 hover:bg-green-100 hover:border-green-400"
+                    >
+                      WhatsApp
+                    </Button>
+                  </a>
+                  <a href="tel:+917022108860" className="flex-1">
                     <Button
                       type="button"
                       variant="outline"
                       size="lg"
                       icon={PhoneCall}
-                      className="w-full sm:w-auto justify-center border-slate-300"
+                      className="w-full justify-center border-slate-300"
                     >
                       Call Desk
                     </Button>

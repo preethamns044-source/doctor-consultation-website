@@ -14,6 +14,12 @@ import {
   MapPin
 } from 'lucide-react';
 
+const WhatsAppIcon = ({ className }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+);
+
 export default function HeroSection({ onBookClick }) {
   const { name, title, degrees, experienceYears, image, clinic } = DOCTOR_PROFILE;
 
@@ -65,6 +71,16 @@ export default function HeroSection({ onBookClick }) {
               >
                 Book Consultation
               </Button>
+              <a href="https://wa.me/917022108860?text=Hello%20Dr.%20Dheekshith%20MR%2C%20I%20would%20like%20to%20enquire%20about%20a%20consultation." target="_blank" rel="noopener noreferrer">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  icon={WhatsAppIcon} 
+                  className="w-full sm:w-auto border-green-300 hover:border-green-400 text-green-800 bg-green-50"
+                >
+                  WhatsApp
+                </Button>
+              </a>
               <a href="tel:+917022108860">
                 <Button 
                   variant="outline" 
