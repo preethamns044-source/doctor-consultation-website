@@ -1,3 +1,4 @@
+import doctorImage from '../assets/doctor-dheekshith-mr.jpeg';
 export const DOCTOR_PROFILE = {
   name: 'Dr. Dheekshith MR',
   title: 'Orthopaedic Surgeon',
@@ -12,7 +13,7 @@ export const DOCTOR_PROFILE = {
     'Shoulder & Upper Limb Problems'
   ],
   experienceYears: 7,
-  image: '/src/assets/doctor-dheekshith-mr.jpeg',
+  image: doctorImage,
   clinic: {
     name: '',
     suite: '',
