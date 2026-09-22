@@ -102,48 +102,156 @@ export const DOCTOR_PROFILE = {
     'Specialised training in joint replacement surgery',
     'FIFA-certified Diploma in Football Medicine'
   ],
-  treatments: [
+  services: [
     {
-      id: 'joint-replacement',
-      title: 'Joint Replacement Consultation',
-      icon: 'Activity',
-      description: 'Expert evaluation and consultation for patients considering or recovering from joint replacement procedures. Dr. Dheekshith MR can assess joint health, discuss surgical and non-surgical options, and guide post-operative care.',
-      points: ['Hip and knee joint evaluation', 'Pre-surgical assessment and advice', 'Post-operative rehabilitation guidance']
-    },
-    {
-      id: 'arthritis-joint-pain',
-      title: 'Arthritis & Joint Pain Management',
-      icon: 'HeartPulse',
-      description: 'Comprehensive assessment of arthritis, chronic joint pain, and degenerative conditions. A tailored management plan is provided to help improve function and reduce pain.',
-      points: ['Osteoarthritis and rheumatoid arthritis evaluation', 'Pain management strategies', 'Lifestyle and activity modification guidance']
-    },
-    {
-      id: 'sports-football-injury',
-      title: 'Sports & Football Injury Evaluation',
+      id: 'acl-injury-reconstruction',
+      title: 'ACL Injury & Reconstruction',
       icon: 'Zap',
-      description: 'With a FIFA Diploma in Football Medicine, Dr. Dheekshith MR offers specialised assessment of sports-related musculoskeletal injuries, including football-specific conditions affecting athletes at all levels.',
-      points: ['Ligament, tendon, and muscle injury assessment', 'Return-to-sport guidance', 'Football-specific injury management']
+      description: 'Expert arthroscopic reconstruction for ACL tears, aiming to restore stability and function to the knee for active individuals and athletes.',
+      points: ['Arthroscopic ACL repair', 'Graft selection guidance', 'Structured rehab protocols']
     },
     {
-      id: 'fracture-injury-care',
-      title: 'Fracture & Orthopaedic Injury Care',
+      id: 'knee-arthroscopy',
+      title: 'Knee Arthroscopy',
+      icon: 'Activity',
+      description: 'Minimally invasive diagnostic and therapeutic procedures for various knee joint issues, offering faster recovery times.',
+      points: ['Minimally invasive approach', 'Faster recovery', 'Diagnostic accuracy']
+    },
+    {
+      id: 'meniscus-treatment',
+      title: 'Meniscus Injury & Treatment',
       icon: 'ShieldCheck',
-      description: 'Evaluation and management of fractures and orthopaedic trauma. Appropriate treatment recommendations are made, including referral for further imaging or surgical management when indicated.',
-      points: ['Fracture assessment and management guidance', 'Orthopaedic trauma evaluation', 'Follow-up and rehabilitation planning']
+      description: 'Specialised care for meniscus tears, providing arthroscopic repair or partial meniscectomy to preserve joint health.',
+      points: ['Arthroscopic repair', 'Meniscectomy when needed', 'Joint preservation']
     },
     {
-      id: 'knee-hip-problems',
-      title: 'Knee & Hip Conditions',
-      icon: 'Stethoscope',
-      description: 'Assessment and management of a wide range of knee and hip conditions, including meniscal problems, ligament injuries, bursitis, and degenerative changes.',
-      points: ['Knee ligament and meniscus evaluation', 'Hip pain and mobility assessment', 'Conservative and surgical pathway discussion']
+      id: 'knee-replacement',
+      title: 'Knee Replacement',
+      icon: 'Activity',
+      description: 'Advanced total and partial knee replacement surgeries designed to relieve chronic arthritis pain and restore mobility.',
+      points: ['Total & partial replacements', 'Advanced implants', 'Comprehensive post-op care']
     },
     {
-      id: 'shoulder-musculoskeletal',
-      title: 'Shoulder & Musculoskeletal Conditions',
+      id: 'hip-replacement',
+      title: 'Hip Replacement',
+      icon: 'Activity',
+      description: 'Surgical solutions for severe hip arthritis and fractures using modern prostheses for improved joint mechanics.',
+      points: ['Arthritis management', 'Hip fracture solutions', 'Enhanced mobility']
+    },
+    {
+      id: 'shoulder-rotator-cuff',
+      title: 'Shoulder & Rotator Cuff Care',
       icon: 'Sparkles',
-      description: 'Consultation for shoulder injuries, rotator cuff problems, upper limb conditions, and general musculoskeletal complaints affecting bones, joints, and soft tissues.',
-      points: ['Rotator cuff and shoulder impingement assessment', 'Upper limb orthopaedic evaluation', 'Musculoskeletal pain management']
+      description: 'Comprehensive surgical and non-surgical treatment for rotator cuff tears, impingement, and shoulder instability.',
+      points: ['Rotator cuff repair', 'Instability management', 'Mobility restoration']
+    },
+    {
+      id: 'sports-medicine',
+      title: 'Sports Medicine & Injuries',
+      icon: 'Zap',
+      description: 'Dedicated sports medicine care focusing on the rapid and safe return to athletic activities following an injury.',
+      points: ['Athletic injury assessment', 'FIFA-certified expertise', 'Safe return-to-sport']
+    },
+    {
+      id: 'orthopaedic-trauma',
+      title: 'Orthopaedic Trauma & Fracture',
+      icon: 'ShieldCheck',
+      description: 'Urgent and definitive care for simple to complex fractures using advanced casting and surgical fixation techniques.',
+      points: ['Complex fracture fixation', 'Urgent trauma care', 'Optimal bone healing']
+    },
+    {
+      id: 'ligament-tendon-injuries',
+      title: 'Ligament & Tendon Injuries',
+      icon: 'Stethoscope',
+      description: 'Targeted treatment for sprains, strains, and tendon ruptures across all major joints.',
+      points: ['Soft tissue healing', 'Tendon repair', 'Sprain management']
+    },
+    {
+      id: 'general-orthopaedic',
+      title: 'General Orthopaedic Care',
+      icon: 'HeartPulse',
+      description: 'Comprehensive evaluation and personalized treatment plans for a broad spectrum of musculoskeletal complaints.',
+      points: ['Diagnostic imaging review', 'Personalised treatment', 'Preventative care']
+    }
+  ],
+  treatments: [
+    { id: 'knee-pain', title: 'Knee Pain', icon: 'Stethoscope', description: 'Comprehensive evaluation for acute or chronic knee pain.', points: [] },
+    { id: 'arthritis-joint-pain', title: 'Arthritis & Joint Pain', icon: 'HeartPulse', description: 'Management of osteoarthritis and inflammatory joint conditions.', points: [] },
+    { id: 'acl-tears', title: 'ACL Tears', icon: 'Zap', description: 'Diagnosis and management of anterior cruciate ligament injuries.', points: [] },
+    { id: 'meniscus-tears', title: 'Meniscus Tears', icon: 'Activity', description: 'Treatment plans for symptomatic meniscal cartilage damage.', points: [] },
+    { id: 'shoulder-pain', title: 'Shoulder Pain', icon: 'Stethoscope', description: 'Care for general shoulder discomfort and stiffness.', points: [] },
+    { id: 'frozen-shoulder', title: 'Frozen Shoulder', icon: 'Activity', description: 'Therapies to improve range of motion in adhesive capsulitis.', points: [] },
+    { id: 'rotator-cuff-problems', title: 'Rotator Cuff Problems', icon: 'Sparkles', description: 'Management of tendonitis and cuff weakness.', points: [] },
+    { id: 'hip-pain', title: 'Hip Pain', icon: 'Stethoscope', description: 'Evaluation of hip joint discomfort, bursitis, and arthritis.', points: [] },
+    { id: 'sports-football-injuries', title: 'Sports & Football Injuries', icon: 'Zap', description: 'Specialized care for football-related musculoskeletal issues.', points: [] },
+    { id: 'fractures-trauma', title: 'Fractures & Trauma', icon: 'ShieldCheck', description: 'Initial and follow-up care for bone breaks and trauma.', points: [] },
+    { id: 'ligament-injuries', title: 'Ligament Injuries', icon: 'Stethoscope', description: 'Care for sprains and partial tears of joint ligaments.', points: [] },
+    { id: 'tendon-injuries', title: 'Tendon Injuries', icon: 'Activity', description: 'Treatment for Achilles, patellar, and other tendinopathies.', points: [] },
+    { id: 'foot-heel-ankle', title: 'Foot, Heel & Ankle Problems', icon: 'Stethoscope', description: 'Management of plantar fasciitis, ankle sprains, and heel pain.', points: [] },
+    { id: 'back-neck-pain', title: 'Back & Neck Pain', icon: 'Activity', description: 'Initial assessment and conservative care for spinal pain.', points: [] },
+    { id: 'childrens-orthopaedic', title: 'Children\'s Orthopaedic Conditions', icon: 'HeartPulse', description: 'Evaluation of pediatric growth-related musculoskeletal concerns.', points: [] },
+    { id: 'musculoskeletal-problems', title: 'Musculoskeletal Problems', icon: 'ShieldCheck', description: 'Broad-spectrum care for muscle, bone, and joint disorders.', points: [] }
+  ],
+  regenerativeTreatments: [
+    {
+      id: 'prp-therapy',
+      title: 'PRP Therapy',
+      icon: 'HeartPulse',
+      description: 'Platelet-Rich Plasma therapy utilizes your body’s own natural healing factors to accelerate recovery for tendon injuries and mild arthritis.',
+      points: ['Natural healing mechanism', 'Minimally invasive', 'Outpatient procedure']
+    },
+    {
+      id: 'gfc-therapy',
+      title: 'GFC Therapy',
+      icon: 'Zap',
+      description: 'Growth Factor Concentrate therapy offers a refined, highly concentrated dose of your own growth factors for enhanced tissue repair.',
+      points: ['Highly concentrated formula', 'Targeted tissue repair', 'Advanced regenerative care']
+    },
+    {
+      id: 'hyaluronic-acid',
+      title: 'Hyaluronic Acid / Viscosupplementation',
+      icon: 'Activity',
+      description: 'Provides lubrication and shock absorption to arthritic joints, reducing pain and improving mobility without surgery.',
+      points: ['Improved joint lubrication', 'Pain reduction', 'Enhanced mobility']
+    },
+    {
+      id: 'ultrasound-guided',
+      title: 'Ultrasound-Guided Injections',
+      icon: 'Stethoscope',
+      description: 'Real-time imaging ensures that orthopaedic injections are delivered precisely to the affected joint or tendon for maximum efficacy.',
+      points: ['High precision delivery', 'Increased safety', 'Maximized clinical benefit']
+    },
+    {
+      id: 'non-surgical-knee',
+      title: 'Non-surgical Knee Pain Management',
+      icon: 'ShieldCheck',
+      description: 'A comprehensive conservative approach to knee pain, combining medication, bracing, and structured physical therapy.',
+      points: ['Conservative approach', 'Pain management strategies', 'Lifestyle modification']
+    },
+    {
+      id: 'sports-injury-rehab',
+      title: 'Sports Injury Rehabilitation',
+      icon: 'Sparkles',
+      description: 'Customized rehabilitation programs designed to restore strength, flexibility, and function following sports injuries.',
+      points: ['Customized rehab plans', 'Strength & flexibility focus', 'Functional recovery']
+    }
+  ],
+  locations: [
+    {
+      id: 'ramanagara',
+      name: 'Ramanagara',
+      hospital: 'Atreum Ramakrishna Hospital',
+      address: 'SS Complex, BM Road, near IDBI Bank, Vivekananda Nagar',
+      city: 'Ramanagara, Karnataka 562159',
+      mapQuery: 'Atreum Ramakrishna Hospital, SS Complex, BM Road, near IDBI Bank, Vivekananda Nagar, Ramanagara, Karnataka 562159'
+    },
+    {
+      id: 'rr-nagar',
+      name: 'RR Nagar, Bengaluru',
+      hospital: 'Atreum Specialty Hospital',
+      address: 'Ideal Homes Layout, Kenchenahalli, Rajarajeshwari Nagar',
+      city: 'Bengaluru, Karnataka 560098',
+      mapQuery: 'Atreum Specialty Hospital, Ideal Homes Layout, Kenchenahalli, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098'
     }
   ],
   testimonials: []

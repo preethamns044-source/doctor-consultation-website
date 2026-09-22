@@ -24,10 +24,13 @@ export default function Navbar({ onBookClick }) {
 
   const navLinks = [
     { label: 'About Doctor', href: '#about' },
+    { label: 'Services', href: '#services' },
     { label: 'Treatments', href: '#treatments' },
     { label: 'Experience', href: '#experience' },
     { label: 'Patient Reviews', href: '#testimonials' },
     { label: 'Clinic & Fees', href: '#consultation' },
+    { label: 'Gallery', href: '#gallery' },
+    { label: 'Locations', href: '#locations' },
   ];
 
   const handleBook = (e) => {
