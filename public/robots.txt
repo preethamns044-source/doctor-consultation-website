@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow admin routes to prevent indexing of internal paths
+Disallow: /admin/login
+Disallow: /admin/gallery
+
+# Sitemap location
+Sitemap: https://doctor-consultation-website-sand.vercel.app/sitemap.xml
