@@ -153,7 +153,7 @@ export default function AdminGallery() {
       setUploadProgress(`Uploading image ${i + 1} of ${selectedFiles.length}...`);
       const item = selectedFiles[i];
       const fileExt = item.file.name.split('.').pop();
-      const fileName = `${Math.random().toString(36).substring(2, 15)}_${Date.now()}.${fileExt}`;
+      const fileName = `${crypto.randomUUID()}.${fileExt}`;
       const filePath = `uploads/${fileName}`;
 
       // 1. Upload to storage
