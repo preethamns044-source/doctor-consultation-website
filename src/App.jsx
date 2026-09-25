@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import HeroSection from './components/home/HeroSection';
@@ -16,12 +16,27 @@ import EmergencyBanner from './components/home/EmergencyBanner';
 import AppointmentModal from './components/consultation/AppointmentModal';
 import AdminLogin from './pages/AdminLogin';
 import AdminGallery from './pages/AdminGallery';
+import DoctorDashboard from './pages/DoctorDashboard';
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState('in-clinic');
 
-  const path = window.location.pathname;
+  // Normalize: strip trailing slash so /admin/login/ matches the same as /admin/login
+  const rawPath = window.location.pathname;
+  const path = rawPath.length > 1 && rawPath.endsWith('/') ? rawPath.slice(0, -1) : rawPath;
+
+  // Redirect short-form admin/client/doctor paths to the canonical dashboard URL.
+  // Must run in useEffect so it never fires inside the React render phase.
+  useEffect(() => {
+    const isShortPath =
+      path === '/admin' ||
+      path === '/client' ||
+      path === '/doctor';
+    if (isShortPath) {
+      window.location.replace('/doctor/dashboard');
+    }
+  }, [path]);
 
   if (path === '/admin/login') {
     return <AdminLogin />;
@@ -29,6 +44,15 @@ export default function App() {
 
   if (path === '/admin/gallery') {
     return <AdminGallery />;
+  }
+
+  if (path === '/doctor/dashboard' || path === '/client/dashboard' || path === '/admin/dashboard') {
+    return <DoctorDashboard />;
+  }
+
+  // Short-form redirect paths — render nothing while the useEffect redirect fires
+  if (path === '/admin' || path === '/client' || path === '/doctor') {
+    return null;
   }
 
   const handleOpenModal = (type = 'in-clinic') => {
