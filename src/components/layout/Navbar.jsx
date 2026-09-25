@@ -45,7 +45,7 @@ export default function Navbar({ onBookClick }) {
       <Container>
         <div className="flex items-center justify-between h-16 sm:h-20 gap-2">
           {/* Doctor Branding */}
-          <a href="#" className="flex items-center gap-2.5 sm:gap-3.5 group min-w-0">
+          <a href="/" className="flex items-center gap-2.5 sm:gap-3.5 group min-w-0">
             <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-teal-800 text-white flex items-center justify-center shrink-0 shadow-sm shadow-teal-900/10 group-hover:bg-teal-900 transition-colors">
               <Stethoscope className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.2]" />
             </div>

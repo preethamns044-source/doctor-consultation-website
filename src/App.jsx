@@ -18,40 +18,103 @@ import AdminLogin from './pages/AdminLogin';
 import AdminGallery from './pages/AdminGallery';
 import DoctorDashboard from './pages/DoctorDashboard';
 
+function getCanonicalPath() {
+  const pathname = window.location.pathname || '/';
+  const hash = window.location.hash || '';
+  const fullUrl = pathname + hash;
+
+  // 1. Check for specific routes anywhere in pathname or hash
+  if (fullUrl.includes('/admin/login')) {
+    return '/admin/login';
+  }
+  if (fullUrl.includes('/admin/gallery')) {
+    return '/admin/gallery';
+  }
+  if (
+    fullUrl.includes('/doctor/dashboard') ||
+    fullUrl.includes('/client/dashboard') ||
+    fullUrl.includes('/admin/dashboard')
+  ) {
+    return '/doctor/dashboard';
+  }
+  if (
+    pathname === '/gallery' ||
+    pathname === '/gallery/' ||
+    hash === '#/gallery' ||
+    hash === '#/gallery/' ||
+    hash === '#gallery'
+  ) {
+    return '/gallery';
+  }
+
+  // Normalize path
+  const cleanPath = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+
+  if (cleanPath === '/admin' || cleanPath === '/client' || cleanPath === '/doctor') {
+    return '/doctor/dashboard';
+  }
+
+  return cleanPath;
+}
+
 export default function App() {
+  const [currentPath, setCurrentPath] = useState(getCanonicalPath);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState('in-clinic');
 
-  // Normalize: strip trailing slash so /admin/login/ matches the same as /admin/login
-  const rawPath = window.location.pathname;
-  const path = rawPath.length > 1 && rawPath.endsWith('/') ? rawPath.slice(0, -1) : rawPath;
+  // Listen to browser history and hash navigation events
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(getCanonicalPath());
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
+  }, []);
+
+  // Smooth scroll to gallery section if on /gallery route
+  useEffect(() => {
+    if (currentPath === '/gallery') {
+      const timer = setTimeout(() => {
+        const el = document.getElementById('gallery');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [currentPath]);
 
   // Redirect short-form admin/client/doctor paths to the canonical dashboard URL.
-  // Must run in useEffect so it never fires inside the React render phase.
   useEffect(() => {
-    const isShortPath =
-      path === '/admin' ||
-      path === '/client' ||
-      path === '/doctor';
-    if (isShortPath) {
+    const rawPath = window.location.pathname;
+    const cleanPath = rawPath.length > 1 && rawPath.endsWith('/') ? rawPath.slice(0, -1) : rawPath;
+    if (cleanPath === '/admin' || cleanPath === '/client' || cleanPath === '/doctor') {
       window.location.replace('/doctor/dashboard');
     }
-  }, [path]);
+  }, [currentPath]);
 
-  if (path === '/admin/login') {
+  if (currentPath === '/admin/login') {
     return <AdminLogin />;
   }
 
-  if (path === '/admin/gallery') {
+  if (currentPath === '/admin/gallery') {
     return <AdminGallery />;
   }
 
-  if (path === '/doctor/dashboard' || path === '/client/dashboard' || path === '/admin/dashboard') {
+  if (currentPath === '/doctor/dashboard') {
     return <DoctorDashboard />;
   }
 
   // Short-form redirect paths — render nothing while the useEffect redirect fires
-  if (path === '/admin' || path === '/client' || path === '/doctor') {
+  const rawPath = window.location.pathname;
+  const cleanPath = rawPath.length > 1 && rawPath.endsWith('/') ? rawPath.slice(0, -1) : rawPath;
+  if (cleanPath === '/admin' || cleanPath === '/client' || cleanPath === '/doctor') {
     return null;
   }
 
