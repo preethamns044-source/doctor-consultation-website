@@ -410,11 +410,18 @@ export default function DoctorDashboard() {
   const [updateSuccess, setUpdateSuccess] = useState(null);
 
   const checkAdminStatus = useCallback(async (userId) => {
+    if (!userId) {
+      setIsAllowed(false);
+      setAuthLoading(false);
+      window.location.replace('/admin/login?redirect=/doctor/dashboard');
+      return;
+    }
+
     const { data, error } = await supabase
       .from('admin_users')
       .select('id')
       .eq('id', userId)
-      .single();
+      .maybeSingle();
 
     if (data && !error) {
       setIsAllowed(true);
@@ -426,25 +433,38 @@ export default function DoctorDashboard() {
 
   // ── Auth check ─────────────────────────────────────────────
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      if (session) {
-        checkAdminStatus(session.user.id);
+    let isMounted = true;
+
+    supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
+      if (!isMounted) return;
+      setSession(currentSession);
+
+      if (currentSession?.user?.id) {
+        checkAdminStatus(currentSession.user.id);
       } else {
-        window.location.href = '/admin/login?redirect=/doctor/dashboard';
+        setIsAllowed(false);
+        setAuthLoading(false);
+        window.location.replace('/admin/login?redirect=/doctor/dashboard');
       }
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      if (session) {
-        checkAdminStatus(session.user.id);
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, currentSession) => {
+      if (!isMounted) return;
+      setSession(currentSession);
+
+      if (currentSession?.user?.id) {
+        checkAdminStatus(currentSession.user.id);
       } else {
-        window.location.href = '/admin/login?redirect=/doctor/dashboard';
+        setIsAllowed(false);
+        setAuthLoading(false);
+        window.location.replace('/admin/login?redirect=/doctor/dashboard');
       }
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      isMounted = false;
+      subscription.unsubscribe();
+    };
   }, [checkAdminStatus]);
 
   // ── Fetch appointments (only runs when allowed) ────────────

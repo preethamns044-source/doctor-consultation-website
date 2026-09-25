@@ -17,6 +17,51 @@ import AppointmentModal from './components/consultation/AppointmentModal';
 import AdminLogin from './pages/AdminLogin';
 import AdminGallery from './pages/AdminGallery';
 import DoctorDashboard from './pages/DoctorDashboard';
+import { supabase } from './lib/supabase';
+
+function ProtectedRoute({ children, targetPath }) {
+  const [session, setSession] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
+      if (!isMounted) return;
+      if (!currentSession) {
+        window.location.replace(`/admin/login?redirect=${encodeURIComponent(targetPath)}`);
+      } else {
+        setSession(currentSession);
+        setLoading(false);
+      }
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, currentSession) => {
+      if (!isMounted) return;
+      if (!currentSession) {
+        window.location.replace(`/admin/login?redirect=${encodeURIComponent(targetPath)}`);
+      } else {
+        setSession(currentSession);
+        setLoading(false);
+      }
+    });
+
+    return () => {
+      isMounted = false;
+      subscription.unsubscribe();
+    };
+  }, [targetPath]);
+
+  if (loading || !session) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-teal-700 border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  return children;
+}
 
 function getCanonicalPath() {
   const pathname = window.location.pathname || '/';
@@ -104,11 +149,19 @@ export default function App() {
   }
 
   if (currentPath === '/admin/gallery') {
-    return <AdminGallery />;
+    return (
+      <ProtectedRoute targetPath="/admin/gallery">
+        <AdminGallery />
+      </ProtectedRoute>
+    );
   }
 
   if (currentPath === '/doctor/dashboard') {
-    return <DoctorDashboard />;
+    return (
+      <ProtectedRoute targetPath="/doctor/dashboard">
+        <DoctorDashboard />
+      </ProtectedRoute>
+    );
   }
 
   // Short-form redirect paths — render nothing while the useEffect redirect fires
