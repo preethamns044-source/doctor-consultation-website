@@ -4,6 +4,6 @@ Allow: /
 # Disallow admin routes to prevent indexing of internal paths
 Disallow: /admin/login
 Disallow: /admin/gallery
-
+Disallow: /doctor/dashboard
 # Sitemap location
 Sitemap: https://doctor-consultation-website-sand.vercel.app/sitemap.xml
