@@ -189,6 +189,8 @@ export const DOCTOR_PROFILE = {
     { id: 'tendon-injuries', title: 'Tendon Injuries', icon: 'Activity', description: 'Treatment for Achilles, patellar, and other tendinopathies.', points: [] },
     { id: 'foot-heel-ankle', title: 'Foot, Heel & Ankle Problems', icon: 'Stethoscope', description: 'Management of plantar fasciitis, ankle sprains, and heel pain.', points: [] },
     { id: 'back-neck-pain', title: 'Back & Neck Pain', icon: 'Activity', description: 'Initial assessment and conservative care for spinal pain.', points: [] },
+    { id: 'spine-care', title: 'Spine Care', icon: 'Activity', description: 'Care for common spinal conditions and discomfort.', points: [] },
+    { id: 'sciatica', title: 'Sciatica', icon: 'Activity', description: 'Assessment and treatment of sciatic nerve pain.', points: [] },
     { id: 'childrens-orthopaedic', title: 'Children\'s Orthopaedic Conditions', icon: 'HeartPulse', description: 'Evaluation of pediatric growth-related musculoskeletal concerns.', points: [] },
     { id: 'musculoskeletal-problems', title: 'Musculoskeletal Problems', icon: 'ShieldCheck', description: 'Broad-spectrum care for muscle, bone, and joint disorders.', points: [] }
   ],
