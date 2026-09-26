@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
-import Container from '../components/layout/Container';
 import Button from '../components/common/Button';
 
 export default function AdminLogin() {
@@ -9,22 +8,39 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const getSafeRedirectUrl = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirect = urlParams.get('redirect');
+    if (typeof redirect === 'string' && redirect.startsWith('/') && !redirect.startsWith('//') && !redirect.includes('\\')) {
+      return redirect;
+    }
+    return '/doctor/dashboard';
+  };
+
+  useEffect(() => {
+    // If user already has an active session, redirect them immediately
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        window.location.replace(getSafeRedirectUrl());
+      }
+    });
+  }, []);
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { error: authError } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
-    if (error) {
-      setError(error.message);
+    if (authError) {
+      setError(authError.message);
       setLoading(false);
     } else {
-      // Assuming App.jsx handles routing based on auth state or path
-      window.location.href = '/admin/gallery';
+      window.location.replace(getSafeRedirectUrl());
     }
   };
 
@@ -32,8 +48,8 @@ export default function AdminLogin() {
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl border border-slate-200/60 p-8 sm:p-10">
         <div className="text-center mb-8">
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Admin Login</h1>
-          <p className="text-sm text-slate-500 mt-2">Secure access for gallery management</p>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Admin &amp; Doctor Login</h1>
+          <p className="text-sm text-slate-500 mt-2">Secure access for appointment and gallery management</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-5">
@@ -82,7 +98,7 @@ export default function AdminLogin() {
             {loading ? 'Authenticating...' : 'Log In'}
           </Button>
         </form>
-        
+
         <div className="mt-6 text-center">
           <a href="/" className="text-sm text-slate-500 hover:text-teal-700 transition-colors">
             &larr; Back to website
