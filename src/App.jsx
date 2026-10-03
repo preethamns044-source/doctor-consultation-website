@@ -17,6 +17,7 @@ import AppointmentModal from './components/consultation/AppointmentModal';
 import AdminLogin from './pages/AdminLogin';
 import AdminGallery from './pages/AdminGallery';
 import DoctorDashboard from './pages/DoctorDashboard';
+import DoctorProfilePage from './pages/DoctorProfilePage';
 import { supabase } from './lib/supabase';
 
 function ProtectedRoute({ children, targetPath }) {
@@ -91,6 +92,15 @@ function getCanonicalPath() {
   ) {
     return '/gallery';
   }
+  if (
+    pathname === '/dr-dheekshith-mr' ||
+    pathname === '/dr-dheekshith-mr/' ||
+    hash === '#/dr-dheekshith-mr' ||
+    hash === '#/dr-dheekshith-mr/' ||
+    hash === '#dr-dheekshith-mr'
+  ) {
+    return '/dr-dheekshith-mr';
+  }
 
   // Normalize path
   const cleanPath = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
@@ -147,6 +157,11 @@ export default function App() {
       description = 'Explore the clinic gallery, facilities, and patient care environment of Dr. Dheekshith MR, Orthopaedic Surgeon in Bangalore & Ramanagara.';
       canonicalUrl = 'https://doctor-consultation-website-sand.vercel.app/gallery';
       robotsContent = 'index, follow';
+    } else if (currentPath === '/dr-dheekshith-mr') {
+      title = 'Dr. Dheekshith MR | Orthopaedic Surgeon';
+      description = 'Learn about Dr. Dheekshith MR, orthopaedic surgeon, including his professional profile, treatments, consultation information and appointment details.';
+      canonicalUrl = 'https://doctor-consultation-website-sand.vercel.app/dr-dheekshith-mr';
+      robotsContent = 'index, follow';
     } else if (
       currentPath === '/admin/login' ||
       currentPath === '/admin/gallery' ||
@@ -191,6 +206,10 @@ export default function App() {
       window.location.replace('/doctor/dashboard');
     }
   }, [currentPath]);
+
+  if (currentPath === '/dr-dheekshith-mr') {
+    return <DoctorProfilePage />;
+  }
 
   if (currentPath === '/admin/login') {
     return <AdminLogin />;

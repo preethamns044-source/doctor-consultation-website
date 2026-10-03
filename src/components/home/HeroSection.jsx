@@ -53,7 +53,10 @@ export default function HeroSection({ onBookClick }) {
                 Expert Orthopaedic Consultation for Joints, Sports Injuries &amp; Musculoskeletal Conditions
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                Dr. Dheekshith MR is an Orthopaedic Surgeon in Bangalore and Ramanagara with {experienceYears}+ years of clinical training, holding an MS, DNB in Orthopaedics, a Fellowship in Joint Replacement, and a FIFA Diploma in Football Medicine. Available for online and in-clinic consultations.
+                Dr. Dheekshith MR is an Orthopaedic Surgeon in Bangalore and Ramanagara with {experienceYears}+ years of clinical training, holding an MS, DNB in Orthopaedics, a Fellowship in Joint Replacement, and a FIFA Diploma in Football Medicine. Available for online and in-clinic consultations.{' '}
+                <a href="/dr-dheekshith-mr" className="text-teal-800 font-bold hover:underline">
+                  View Dr. Dheekshith MR's Profile &rarr;
+                </a>
               </p>
             </div>
 

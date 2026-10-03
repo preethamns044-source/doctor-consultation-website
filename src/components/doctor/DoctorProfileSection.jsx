@@ -10,7 +10,8 @@ import {
   Award, 
   Building2,
   Sparkles,
-  Quote
+  Quote,
+  ArrowRight
 } from 'lucide-react';
 
 export default function DoctorProfileSection() {
@@ -108,6 +109,16 @@ export default function DoctorProfileSection() {
                 <strong className="font-bold text-teal-900 block mb-0.5">Clinical Principle:</strong>
                 "{bio.quote}"
               </div>
+            </div>
+
+            {/* Link to Dedicated Doctor Profile Page */}
+            <div className="pt-2">
+              <a 
+                href="/dr-dheekshith-mr" 
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-teal-800 hover:text-teal-900 bg-teal-50 hover:bg-teal-100/80 px-4 py-2.5 rounded-xl border border-teal-200/80 transition-colors shadow-2xs"
+              >
+                View Dr. Dheekshith MR's Profile <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>

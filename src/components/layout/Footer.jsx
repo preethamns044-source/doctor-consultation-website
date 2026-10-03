@@ -46,6 +46,7 @@ export default function Footer() {
               Navigation
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li><a href="/dr-dheekshith-mr" className="hover:text-white transition-colors">Doctor Profile</a></li>
               <li><a href="#about" className="hover:text-white transition-colors">About Doctor</a></li>
               <li><a href="#treatments" className="hover:text-white transition-colors">Treatments</a></li>
               <li><a href="#experience" className="hover:text-white transition-colors">Credentials</a></li>
