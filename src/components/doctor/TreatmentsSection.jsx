@@ -60,9 +60,9 @@ export default function TreatmentsSection() {
                       <Icon className="w-6 h-6 stroke-[2]" />
                     </div>
 
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">
+                    <h4 className="text-lg font-bold text-slate-900 mb-2">
                       {item.title}
-                    </h3>
+                    </h4>
 
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-5">
                       {item.description}
@@ -89,7 +89,7 @@ export default function TreatmentsSection() {
 
         {/* Conditions Grid */}
         <div>
-          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6 text-center">Conditions Treated</h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6 text-center">Orthopaedic Conditions Treated</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {treatments.map((item) => {
               const Icon = ICON_MAP[item.icon] || HeartPulse;
@@ -104,9 +104,9 @@ export default function TreatmentsSection() {
                     <div className="w-8 h-8 rounded-lg bg-slate-50 text-slate-600 flex items-center justify-center shrink-0">
                       <Icon className="w-4 h-4 stroke-[2]" />
                     </div>
-                    <h3 className="text-sm font-bold text-slate-900 leading-tight">
+                    <h4 className="text-sm font-bold text-slate-900 leading-tight">
                       {item.title}
-                    </h3>
+                    </h4>
                   </div>
                   <p className="text-xs text-slate-600 leading-relaxed">
                     {item.description}

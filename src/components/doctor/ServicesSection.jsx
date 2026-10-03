@@ -34,10 +34,10 @@ export default function ServicesSection() {
             Orthopaedic Services
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Comprehensive Orthopaedic Services
+            Comprehensive Orthopaedic Services in Bangalore &amp; Ramanagara
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Expert surgical and major orthopaedic care. We offer advanced evaluation and specialized procedures to restore mobility and function.
+            Expert surgical and non-surgical orthopaedic care by Dr. Dheekshith MR. We offer advanced evaluation and specialized procedures to restore mobility and function.
           </p>
         </div>
 

@@ -135,6 +135,54 @@ export default function App() {
     }
   }, [currentPath]);
 
+  // Dynamic SEO metadata management based on current route
+  useEffect(() => {
+    let title = 'Dr Dheekshith MR – Orthopaedic Surgeon in Bangalore & Ramanagara';
+    let description = 'Dr. Dheekshith MR (MBBS, MS, DNB Ortho) is an Orthopaedic Surgeon in Bangalore & Ramanagara specializing in joint replacement, sports injuries, knee arthroscopy, and fracture trauma.';
+    let canonicalUrl = 'https://doctor-consultation-website-sand.vercel.app/';
+    let robotsContent = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+
+    if (currentPath === '/gallery') {
+      title = 'Clinic & Practice Gallery | Dr Dheekshith MR – Orthopaedic Surgeon';
+      description = 'Explore the clinic gallery, facilities, and patient care environment of Dr. Dheekshith MR, Orthopaedic Surgeon in Bangalore & Ramanagara.';
+      canonicalUrl = 'https://doctor-consultation-website-sand.vercel.app/gallery';
+      robotsContent = 'index, follow';
+    } else if (
+      currentPath === '/admin/login' ||
+      currentPath === '/admin/gallery' ||
+      currentPath === '/doctor/dashboard'
+    ) {
+      title = 'Admin Portal | Dr. Dheekshith MR';
+      description = 'Private administrative portal.';
+      canonicalUrl = '';
+      robotsContent = 'noindex, nofollow';
+    }
+
+    document.title = title;
+
+    // Update Meta Description
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', description);
+    }
+
+    // Update Canonical URL
+    const linkCanonical = document.querySelector('link[rel="canonical"]');
+    if (linkCanonical) {
+      if (canonicalUrl) {
+        linkCanonical.setAttribute('href', canonicalUrl);
+      } else {
+        linkCanonical.removeAttribute('href');
+      }
+    }
+
+    // Update Robots Meta
+    const metaRobots = document.querySelector('meta[name="robots"]');
+    if (metaRobots) {
+      metaRobots.setAttribute('content', robotsContent);
+    }
+  }, [currentPath]);
+
   // Redirect short-form admin/client/doctor paths to the canonical dashboard URL.
   useEffect(() => {
     const rawPath = window.location.pathname;

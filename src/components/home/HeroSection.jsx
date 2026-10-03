@@ -39,14 +39,11 @@ export default function HeroSection({ onBookClick }) {
             <div className="space-y-2">
               <div className="flex items-baseline gap-2.5 flex-wrap">
                 <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
-                  {name}
+                  {name} <span className="text-sm sm:text-lg font-bold text-teal-800 font-normal inline-block">{degrees}</span>
                 </h1>
-                <span className="text-sm sm:text-lg font-bold text-teal-800">
-                  {degrees}
-                </span>
               </div>
               <p className="text-base sm:text-xl font-semibold text-teal-800/90 tracking-tight">
-                {title}
+                {title} in Bangalore &amp; Ramanagara
               </p>
             </div>
 
@@ -56,7 +53,7 @@ export default function HeroSection({ onBookClick }) {
                 Expert Orthopaedic Consultation for Joints, Sports Injuries &amp; Musculoskeletal Conditions
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                Dr. Dheekshith MR is an Orthopaedic Surgeon with {experienceYears}+ years of clinical training, holding an MS, DNB in Orthopaedics, a Fellowship in Joint Replacement, and a FIFA Diploma in Football Medicine. Available for both online and in-clinic orthopaedic consultations.
+                Dr. Dheekshith MR is an Orthopaedic Surgeon in Bangalore and Ramanagara with {experienceYears}+ years of clinical training, holding an MS, DNB in Orthopaedics, a Fellowship in Joint Replacement, and a FIFA Diploma in Football Medicine. Available for online and in-clinic consultations.
               </p>
             </div>
 

@@ -28,12 +28,12 @@ export default function DoctorProfileSection() {
                 <div className="w-16 h-16 rounded-2xl overflow-hidden bg-slate-200 border-2 border-white shadow-xs shrink-0">
                   <img
                     src={DOCTOR_PROFILE.image}
-                    alt="Dr. Dheekshith MR, Orthopaedic Surgeon"
+                    alt="Dr. Dheekshith MR - Orthopaedic Surgeon Profile Photo"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">{name}</h3>
+                  <p className="text-lg font-bold text-slate-900">{name}</p>
                   <p className="text-xs font-semibold text-teal-800">{degrees}</p>
                   <p className="text-xs text-slate-500 mt-0.5">{specialty}</p>
                 </div>
